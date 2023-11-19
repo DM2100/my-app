@@ -1,0 +1,37 @@
+ .container-text{
+    display: flex;
+    width: 100%;
+    height: 100%;  
+  }
+
+  .left-side {
+    flex: 1;
+    max-width: 300px; 
+  }
+  .right-side {
+    display: flex;
+    flex-direction: column;  
+    margin: 20px 70px; 
+  }
+  .border-btm{
+    border-bottom: 1px solid rgb(224, 218, 218);
+    cursor: pointer;
+    padding-bottom: 5px;
+  }
+  .cursor{
+    margin: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .item-names {
+    padding: 1px 8px;
+    margin-left: 55px;
+    background-color: rgb(223, 217, 217);
+    border-radius: 80px;
+  }
+
+  .active{
+    color: orange;
+  }

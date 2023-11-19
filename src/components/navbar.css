@@ -1,0 +1,35 @@
+/* Add this CSS code in your CSS file or style tag in your React component */
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: grey;
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+  }
+  
+  .logo img {
+    max-height: 50px;
+  }
+  .home-item {
+    color: black;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  li {
+    margin-right: 40px;
+  }
+  
+  .icons i {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  
+  
