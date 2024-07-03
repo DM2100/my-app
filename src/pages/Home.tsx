@@ -258,7 +258,7 @@ const HomePage: React.FC<Props> = ({ isLoggedIn, cartItems, setCartItems }) => {
     <div>
       <BannerComponent />
       <div className="container">
-        <h1 className="text-center my-4 py-3" style={{ fontSize: "80px", color: "#273469", fontWeight: "700" }}>
+        <h1 className="text-center  styled-category-text my-4 py-3" style={{ fontSize: "80px", color: "#273469", fontWeight: "700" }}>
           Shop By Category
         </h1>
         <div className="icons justify-content-center align-items-center text-center">
@@ -313,7 +313,7 @@ const HomePage: React.FC<Props> = ({ isLoggedIn, cartItems, setCartItems }) => {
                     style={{
                       fontSize: "80px",
                       color: "#273469",
-                      borderRadius: "50%",
+                      borderRadius: "50%", 
                       cursor: "pointer",
                       border: selectedCategory === "Bed" ? "2px solid black" : "none",
                       padding: "15px",
@@ -343,7 +343,7 @@ const HomePage: React.FC<Props> = ({ isLoggedIn, cartItems, setCartItems }) => {
                     <img
                       src={image}
                       alt={item.category}
-                      className="img-fluid"
+                      className="img-fluid img-hover-3d"
                       style={{ maxWidth: "100%", height: "80%", objectFit: "cover" }}
                     />
                     <div className="text-center">

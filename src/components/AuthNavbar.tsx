@@ -3,7 +3,9 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import { FaBars, FaTimes, FaShoppingBag } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const AuthNavBar: React.FC<{ handleLogout: () => void }> = ({ handleLogout }) => {
+const AuthNavBar: React.FC<{ handleLogout: () => void }> = ({
+  handleLogout,
+}) => {
   const [isNavbarOpen, setIsNavbarOpen] = useState<boolean>(false);
 
   const toggleNavbar = () => {
@@ -27,7 +29,10 @@ const AuthNavBar: React.FC<{ handleLogout: () => void }> = ({ handleLogout }) =>
             <FaBars style={{ fontSize: "24px", color: "white" }} />
           )}
         </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-nav" className={isNavbarOpen ? "show" : ""}>
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          className={isNavbarOpen ? "show" : ""}
+        >
           <Nav className="mx-auto">
             <Nav.Link as={Link} to="/Home" className="links">
               Home
@@ -44,7 +49,7 @@ const AuthNavBar: React.FC<{ handleLogout: () => void }> = ({ handleLogout }) =>
               <FaShoppingBag style={{ fontSize: "24px", color: "white" }} />
             </Nav.Link>
             <Nav.Link className="links" onClick={handleLogout}>
-              Log Out
+              Logout
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

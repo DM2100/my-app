@@ -34,7 +34,7 @@ export const CategoryComp = () => {
   ];
 
   return (
-    <div className="container my-5 py-5">
+    <div className="container styled-category-comp my-5 py-5 ">
       <div className="section mt-3 pt-5">
         <h1 className="text-center" style={{ fontWeight: "700" }}>
           Best Seller

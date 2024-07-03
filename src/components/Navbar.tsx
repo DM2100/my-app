@@ -25,7 +25,7 @@ const NavBar: React.FC<NavBarProps> = ({ isLoggedIn, handleLogout }) => {
     <Navbar className="bg-color" expand="lg">
       <Container>
         <Navbar.Brand href="/" className="custom-logo">
-          E-commerce
+        Furniture E-shop
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
@@ -41,7 +41,7 @@ const NavBar: React.FC<NavBarProps> = ({ isLoggedIn, handleLogout }) => {
         <Navbar.Collapse id="basic-navbar-nav" className={isNavbarOpen ? "show" : ""}>
           <Nav className="mx-auto">
             <Nav.Link as={Link} to="/Home" className="links">
-              Home
+              Shop
             </Nav.Link>
             <Nav.Link as={Link} to="/FaQ" className="links">
               FaQ

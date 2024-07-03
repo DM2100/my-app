@@ -1,7 +1,10 @@
 
-
+// export default CartPage;
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartItem } from "../types"; // Adjust as per your actual type definition
+import PaymentForm from "../components/PaymentComp";
+
 
 interface CartPageProps {
   isLoggedIn: boolean;
@@ -12,7 +15,9 @@ interface CartPageProps {
 
 const CartPage: React.FC<CartPageProps> = ({ isLoggedIn, setCartItems, handleLogout }) => {
   const [cartItemsFromStorage, setCartItemsFromStorage] = useState<CartItem[]>([]);
-
+  const [showPaymentForm, setShowPaymentForm] = useState(false);
+  const navigate = useNavigate();
+  
   // Load cart items from local storage on component mount
   useEffect(() => {
     const storedCartItems = localStorage.getItem("cartItems");
@@ -48,6 +53,24 @@ const CartPage: React.FC<CartPageProps> = ({ isLoggedIn, setCartItems, handleLog
 
   const calculateTotalPrice = () => {
     return cartItemsFromStorage.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+  
+  const handlePayNowClick = () => {
+    setShowPaymentForm(true);
+  };
+
+  const handleClosePaymentForm = () => {
+    setShowPaymentForm(false);
+  };
+
+  const handlePaymentSuccess = () => {
+    // Clear cart items upon successful payment
+    setCartItemsFromStorage([]);
+    localStorage.removeItem("cartItems");
+    
+    // Show success message and navigate to home page
+    alert("Thank you for your purchase! Payment was successful.");
+    navigate("/");
   };
 
   return (
@@ -87,7 +110,12 @@ const CartPage: React.FC<CartPageProps> = ({ isLoggedIn, setCartItems, handleLog
               ))}
             </ul>
             <h3 className="mt-4 total-price">Total Price: ${calculateTotalPrice()}</h3>
-            <button className="pay-btn-styled">Pay Now</button>
+            {!showPaymentForm && (
+              <button className="pay-btn-styled" onClick={handlePayNowClick}>
+                Pay Now
+              </button>
+            )}
+            {showPaymentForm && <PaymentForm onClose={handleClosePaymentForm} onSuccess={handlePaymentSuccess} />}
           </>
         )}
       </div>

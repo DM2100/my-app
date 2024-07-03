@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 
 export const FaQComp = () => {
     return (
-      <div className="container my-5 px-5 acc-container">
+      <div className="container my-5 py-5 px-5 acc-container">
           <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
             <Accordion.Header className='styled-acc-header'>Most Asked Questions #1</Accordion.Header>

@@ -1,12 +1,18 @@
+
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase-config";
 import { Link, useNavigate } from "react-router-dom";
 
-const AuthForm = () => {
+interface AuthFormProps {
+  onLogin: () => void;
+}
+
+const AuthForm: React.FC<AuthFormProps> = ({ onLogin }) => {
   const navigate = useNavigate();
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  
 
   const register = async () => {
     try {
@@ -20,8 +26,14 @@ const AuthForm = () => {
       window.alert("Signed up successfully!");
       console.log("Signed up successfully!", userCredential.user);
 
+      // Update isLoggedIn state in local storage
+      localStorage.setItem("isLoggedIn", "true");
+
+      // Call the onLogin handler to update the state in the parent component
+      onLogin();
+
       // Navigate to the Home page
-      navigate("/Home");
+      navigate("/");
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error("Error signing up:", error.message);
